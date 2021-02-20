@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../UIkit/node_modules/uikit/dist/css/uikit.min.css">
-    <script src="../UIkit/node_modules/uikit/dist/js/uikit.min.js"></script>
-    <script src="../UIkit/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit-icons.min.js"></script>
     <link rel="stylesheet" href="../assets/css/conn.css">
     <link rel="stylesheet" href="../assets/css/new.css">
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
@@ -23,7 +23,7 @@
 
                     <ul class="uk-navbar-nav">
                         <li class="uk-active">
-                            <a href="#"><img src="../img/logo.png" alt="logo" width="50px;"></a>
+                            <a href="./index.html"><img src="../assets/img/logo.png" alt="logo" width="50px;"></a>
                         </li>
                     </ul>
 
@@ -47,7 +47,7 @@
             <div>
 
                 <div class="uk-inline">
-                    <img src="../img/slideshow2.jpg" alt="">
+                    <img src="../assets/img/slideshow2.jpg" alt="">
                     <div class="uk-overlay-primary  uk-position-cover"></div>
                     <div class="uk-overlay uk-position-bottom uk-dark">
                         <p>Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -151,7 +151,7 @@
                             console.log(err)
                         })
                 },
-                redirect: id => window.location.href = `http://127.0.0.1:5500/web-05/pages/detail.html?id=${id}`
+                redirect: id => window.location.href = `http://127.0.0.1:5500/pages/detail.html?id=${id}`
             },
             computed: {
                 pageNum: () => vue.news.meta.total / vue.news.meta.pageSize
