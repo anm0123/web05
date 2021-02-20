@@ -307,7 +307,7 @@
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        axios.get('http://mock-api.com/rnNpaGzl.mock/products')
+        axios.get('https://mock-api.com/rnNpaGzl.mock/products')
             .then(function(res) {
                 console.log(res.data)
                 var obj = res.data;
@@ -321,7 +321,7 @@
             .catch(function(err) {
                 console.log(err)
             })
-        axios.get('http://mock-api.com/rnNpaGzl.mock/hot_products')
+        axios.get('https://mock-api.com/rnNpaGzl.mock/hot_products')
             .then(function(res) {
                 console.log(res.data)
                 var obj = res.data;
@@ -334,13 +334,13 @@
                 $('.uk-panel').click(function(e) {
                     var id = $(this).data('id');
                     console.log(id)
-                    window.location.href = "http://127.0.0.1:5500/web-05/pages/detail.html?id=" + id;
+                    window.location.href = "https://127.0.0.1:5500/web-05/pages/detail.html?id=" + id;
                 })
             })
             .catch(function(err) {
                 console.log(err)
             })
-        axios.get('http://mock-api.com/rnNpaGzl.mock/new_products')
+        axios.get('https://mock-api.com/rnNpaGzl.mock/new_products')
             .then(function(res) {
                 console.log(res.data)
                 var obj = res.data;
@@ -353,7 +353,7 @@
                 $('.uk-panel').click(function(e) {
                     var id = $(this).data('id');
                     console.log(id)
-                    window.location.href = "http://127.0.0.1:5500/web-05/pages/detail.html?id=" + id;
+                    window.location.href = "https://127.0.0.1:5500/web-05/pages/detail.html?id=" + id;
                 })
             })
             .catch(function(err) {
