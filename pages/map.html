@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../UIkit/node_modules/uikit/dist/css/uikit.min.css">
+    <script src="../UIkit/node_modules/uikit/dist/js/uikit.min.js"></script>
+    <script src="../UIkit/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/conn.css">
+    <link rel="stylesheet" href="../assets/css/new.css">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="block">
+        <div class="service">
+            <div id="product-list" class="uk-child-width-1-2@m" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
+                <div v-for="obj in object">
+                    <tr>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <div class="uk-panel" v-bind:data-id="obj.id">
+                                <a href="#">
+                                    <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent" v-bind:src="obj.img" width="225" alt="Example image">
+                                </a>
+                                <h3>{{obj.title}}</h3>
+                                <p>{{obj.descript}}</p>
+                            </div>
+                        </div>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="barcon"></div>
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var num;
+        axios.get('http://mock-api.com/rnNpaGzl.mock/products')
+            .then(function(res) {
+                console.log(res.data)
+                var obj = res.data;
+                console.log(res.data.length);
+                num = res.data.length;
+                new Vue({
+                    el: '#product-list',
+                    data: {
+                        object: obj
+                    }
+
+                })
+                $(".uk-panel").click(function(e) {
+                    console.log($(this).data('id'));
+                    var id = $(this).data('id');
+                    window.location.href = "http://127.0.0.1:5500/web-05/pages/detail.html?id=" + id;
+                })
+
+
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+
+        goPage(1, 2);
+
+
+        function goPage(pno, psize) {
+            var itable = document.getElementById("product-list"); //通过ID找到表格
+            //表格所有行数(所有记录数)
+            var totalPage = 0; //总页数
+            var pageSize = psize; //每页显示行数
+            //总共分几页
+            if (num / pageSize > parseInt(num / pageSize)) {
+                totalPage = parseInt(num / pageSize) + 1;
+            } else {
+                totalPage = parseInt(num / pageSize);
+            }
+            var currentPage = pno; //当前页数
+            var startRow = (currentPage - 1) * pageSize + 1; //开始显示的行  1
+            var endRow = currentPage * pageSize; //结束显示的行   15
+            endRow = (endRow > num) ? num : endRow;
+            //遍历显示数据实现分页
+            for (var i = 1; i < (num + 1); i++) {
+                var irow = num;
+                console.log(irow)
+                if (i >= startRow && i <= endRow) {
+                    irow.style.display = "block";
+                } else {
+                    irow.style.display = "none";
+                }
+            }
+            var tempStr = "";
+            if (currentPage > 1) {
+                tempStr += "<a href=\"#\" onClick=\"goPage(" + (currentPage - 1) + "," + psize + ")\"><上一页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>"
+                for (var j = 1; j <= totalPage; j++) {
+                    tempStr += "<a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a>"
+                }
+            } else {
+                tempStr += "<上一页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                for (var j = 1; j <= totalPage; j++) {
+                    tempStr += "<a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a>"
+                }
+            }
+            if (currentPage < totalPage) {
+                tempStr += "<a href=\"#\" onClick=\"goPage(" + (currentPage + 1) + "," + psize + ")\">下一页>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>";
+                for (var j = 1; j <= totalPage; j++) {}
+            } else {
+                tempStr += "  下一页>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                for (var j = 1; j <= totalPage; j++) {}
+            }
+            document.getElementById("barcon").innerHTML = tempStr;
+        }
+    </script>
+
+</body>
+
+</html>

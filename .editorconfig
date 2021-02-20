@@ -1,0 +1,12 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*] 
+# /n&&/r  不同操作系统下按钮不同，所以同意规范
+end_of_line = crlf
+indent_style = space
+# tabsize
+indent_size = 2

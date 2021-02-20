@@ -1,0 +1,86 @@
+header {}
+
+.pannel {
+    margin-top: -100px;
+    background-color: #EBDCD1;
+}
+
+.block {
+    width: 70%;
+    margin: auto;
+}
+
+.pannel .uk-card-default {
+    background: none;
+    box-shadow: none;
+}
+
+@media (min-width: 960px) {
+    .main .uk-child-width-1-3\@m>* {
+        width: calc(100% * 1 / 2.99);
+    }
+}
+
+canvas,
+img,
+video {
+    margin: auto;
+}
+
+.pannel .uk-position-center .uk-panel h1 {
+    bottom: 0;
+    position: absolute;
+}
+
+.uk-slider-container-offset .cart {
+    background-color: #fff;
+    color: #000;
+}
+
+.uk-slider-container-offset .cart h1 {
+    color: #000;
+}
+
+.cook .uk-comment-body {
+    color: #000;
+}
+
+.cook .uk-width-auto img {
+    border-radius: 50%;
+}
+
+.hot {
+    margin: 20px 0;
+}
+
+.hot h4,
+h1 {
+    text-align: center;
+    color: #000;
+}
+
+.service {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.cook .uk-comment-list .uk-width-auto {
+    margin: auto;
+}
+
+.new {
+    margin: 20px 0;
+}
+
+.new h1 {
+    text-align: center;
+}
+
+.new .uk-card-title img {
+    display: block;
+    margin: auto;
+}
+
+.uk-panel:hover {
+    cursor: pointer;
+}
